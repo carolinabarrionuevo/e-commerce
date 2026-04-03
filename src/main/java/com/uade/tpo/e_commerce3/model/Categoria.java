@@ -21,3 +21,5 @@ public class Categoria {
     @ManyToMany(mappedBy = "categorias")
     private List<Producto> productos = new ArrayList<>();
 }
+
+
