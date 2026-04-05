@@ -37,8 +37,8 @@ public class Producto {
     private List<Categoria> categorias = new ArrayList<>();
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "usuario_id"
+    @JoinColumn(
+        name = "usuario_id")
         private Usuario usuario;
-    )
+    
 }
