@@ -20,5 +20,15 @@ public class Autor {
 
     @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY)
     private List<Libro> libros;
+    // trae los libros del autor, si y solo sí los solicito, sino no los trae por el lazy
+    //autor.getLibros(); 
 
+    //sin lazy
+    // select * from autores a left join libros l on a.id = l.autor_id where a.id = 1; //
+
+    // con lazy
+    // select * from autores a where a.id = 1; // solo trae el autor
+
+    // solo trae los libros del autor si los solicito con get
+    // autoe.getLibros();
 }

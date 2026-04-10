@@ -3,16 +3,27 @@ package com.uade.tpo.e_commerce3.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 
 @Data
+@Builder
 @Entity
 @Table(name = "productos")
 public class Producto {
     
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
@@ -35,10 +46,9 @@ public class Producto {
         inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
     private List<Categoria> categorias = new ArrayList<>();
+    //producto.getCategorias(); // trae las categorias del producto
+ 
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-        name = "usuario_id")
-        private Usuario usuario;
-    
+
+
 }
